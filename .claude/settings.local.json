@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start index.html)",
+      "Bash(start D:/Projects/landing-xuhuong-2026/index.html)",
+      "Skill(chrome-devtools)",
+      "Bash(npm install:*)",
+      "Bash(node screenshot.js:*)",
+      "Bash(node evaluate.js:*)",
+      "Bash(timeout /t 1)",
+      "Bash(node navigate.js:*)",
+      "Bash(curl:*)",
+      "Bash(node -e:*)",
+      "Bash(npx puppeteer:*)",
+      "Bash(start \"\" \"D:\\\\Projects\\\\landing-xuhuong-2026\\\\index.html\")",
+      "Bash(npx --yes puppeteer@latest -e:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

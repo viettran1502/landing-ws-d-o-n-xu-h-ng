@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Dự đoán Xu hướng Video ngắn & Bán hàng 2026 | Duy Muối</title>
+    <meta name="description" content="Workshop Dự đoán Xu hướng Video ngắn & Bán hàng 2026 - Những gì sẽ thay đổi, những gì sẽ còn hiệu quả, những gì cần chuẩn bị">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF2345',
+                        secondary: '#FC9CAB',
+                        accent: '#FF2345',
+                        success: '#2D8B4E',
+                        dark: '#111111',
+                        title: '#1A1A2E',
+                        body: '#334155',
+                        'bg-alt': '#F1F3F4'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .btn-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+        }
+
+        .countdown-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .sticky-cta {
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-body antialiased">
+
+    <!-- STICKY HEADER -->
+    <header id="sticky-header" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 py-3 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div>
+                <span class="font-bold text-xl text-title">Makeviral.Pro</span>
+                <span class="text-body text-sm ml-2 hidden sm:inline">05/02/2026 • 20:00</span>
+            </div>
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="https://m.me/duymuoi.dcme" target="_blank" class="border border-primary text-primary bg-transparent hover:bg-primary hover:text-white rounded-full px-4 md:px-6 py-2 font-semibold text-sm transition-colors">
+                    Tư vấn
+                </a>
+                <a href="#register" class="bg-primary hover:bg-red-600 text-white rounded-full px-4 md:px-6 py-2 font-semibold text-sm transition-colors">
+                    Đăng ký
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="bg-gradient-to-br from-dark to-primary min-h-screen flex items-center pt-20 pb-12 md:pt-24 md:pb-20">
+        <div class="max-w-6xl mx-auto px-4 text-center text-white">
+            <!-- Badge -->
+            <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 text-sm md:text-base">
+                Online qua Zoom • 05/02/2026 • 20:00 - 22:30
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-5xl mx-auto">
+                DỰ ĐOÁN XU HƯỚNG VIDEO NGẮN & BÁN HÀNG <span class="text-primary">2026</span>
+            </h1>
+
+            <!-- Sub-headline -->
+            <p class="text-lg md:text-xl lg:text-2xl opacity-90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Những gì sẽ thay đổi. Những gì sẽ còn hiệu quả. Những gì cần chuẩn bị.
+            </p>
+
+            <!-- Info -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base opacity-80 mb-8">
+                <div class="flex items-center gap-2">
+                    <span>👤</span>
+                    <span>Người hướng dẫn: <strong>Duy Muối</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>⏱️</span>
+                    <span>Thời lượng: <strong>3 tiếng</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>💻</span>
+                    <span>Online qua Zoom</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="flex justify-center gap-2 md:gap-4 mb-8">
+                <div class="countdown-box rounded-lg p-3 md:p-4 min-w-[60px] md:min-w-[80px]">
+                    <div id="countdown-days" class="text-2xl md:text-4xl font-bold">00</div>
+                    <div class="text-xs md:text-sm opacity-80">Ngày</div>
+                </div>
+                <div class="countdown-box rounded-lg p-3 md:p-4 min-w-[60px] md:min-w-[80px]">
+                    <div id="countdown-hours" class="text-2xl md:text-4xl font-bold">00</div>
+                    <div class="text-xs md:text-sm opacity-80">Giờ</div>
+                </div>
+                <div class="countdown-box rounded-lg p-3 md:p-4 min-w-[60px] md:min-w-[80px]">
+                    <div id="countdown-minutes" class="text-2xl md:text-4xl font-bold">00</div>
+                    <div class="text-xs md:text-sm opacity-80">Phút</div>
+                </div>
+                <div class="countdown-box rounded-lg p-3 md:p-4 min-w-[60px] md:min-w-[80px]">
+                    <div id="countdown-seconds" class="text-2xl md:text-4xl font-bold">00</div>
+                    <div class="text-xs md:text-sm opacity-80">Giây</div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#register" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full btn-hover shadow-lg">
+                Đăng ký tham dự
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 2: VÌ SAO CẦN CẬP NHẬT XU HƯỚNG MỚI -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
+                    Vì sao bạn cần cập nhật xu hướng 2026?
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <!-- Card 1 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">⚡</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-title mb-3">Thị trường thay đổi rất nhanh</h3>
+                        <p class="text-gray-600">Nếu không cập nhật, nội dung sẽ sớm không còn phù hợp với người xem</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🚀</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-title mb-3">Ai nắm được xu hướng sớm sẽ có lợi thế</h3>
+                        <p class="text-gray-600">Xu hướng mới = cơ hội mới. Đi trước một bước, bạn có lợi thế cạnh tranh lớn</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">⏳</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-title mb-3">Không theo kịp = bị bỏ lại phía sau</h3>
+                        <p class="text-gray-600">Cách làm cũ không còn hiệu quả trong cuộc chơi đã đổi luật</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CASE STUDY THÀNH CÔNG -->
+    <section class="py-12 md:py-20 bg-bg-alt">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
+                    Case thực tế đã chứng minh
+                </h2>
+
+                <!-- Social Proof Counter -->
+                <p class="text-center text-primary font-semibold text-lg mb-12 animate-pulse">
+                    🔥 127 người đã đăng ký workshop này
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-6 mb-8">
+                    <!-- Case 1 -->
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-success text-xl">✓</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Anh Toản Dương</h3>
+                        <p class="text-gray-500 text-sm mb-2">Công ty du lịch</p>
+                        <p class="text-gray-700">Tự truyền thông bán sản phẩm, không cần booking bên ngoài</p>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-success text-xl">✓</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Kênh "Lần đầu làm bố"</h3>
+                        <p class="text-gray-500 text-sm mb-2">Content creator</p>
+                        <p class="text-gray-700">Nhắc đến trị rạn bụng = người xem nhớ tới đầu tiên</p>
+                    </div>
+
+                    <!-- Case 3 -->
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-success text-xl">✓</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Công Phan</h3>
+                        <p class="text-gray-500 text-sm mb-2">Multi-platform creator</p>
+                        <p class="text-gray-700">1 concept lặp lại hàng trăm video, đa nền tảng, tối ưu doanh thu</p>
+                    </div>
+                </div>
+
+                <p class="text-center text-lg text-gray-600 mb-8">
+                    <strong class="text-title">500+</strong> học viên đã tham gia các khóa học của Duy Muối
+                </p>
+
+                <!-- CTA sau Case Study -->
+                <div class="text-center">
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
+                        Đăng ký ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THỊ TRƯỜNG 2026 SẼ KHÁC NHƯ THẾ NÀO -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
+                    Thị trường 2026 sẽ khác như thế nào?
+                </h2>
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                    5 thay đổi lớn bạn cần biết để không bị bỏ lại
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <!-- Thay đổi 1 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-title mb-2">Thuật toán ngày càng khắt khe</h3>
+                                <p class="text-gray-600 text-sm">Thuật toán ưu tiên người xem, cùng một nhu cầu người xem thấy hàng nghìn video tương tự. Chính sách ngày càng thắt chặt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thay đổi 2 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-title mb-2">Video dưới 1 phút không còn là ưu tiên tuyệt đối</h3>
+                                <p class="text-gray-600 text-sm">TikTok mở "trần thời lượng". Nội dung chuyên sâu 2-5 phút sẽ là độ dài lý tưởng.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thay đổi 3 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-title mb-2">Đa nền tảng là con đường tất yếu</h3>
+                                <p class="text-gray-600 text-sm">Facebook + Shopee bắt tay đẩy Affiliate cuối 2025. Tập trung một nền tảng không còn tối ưu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thay đổi 4 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-title mb-2">Chi phí quảng cáo tăng mạnh</h3>
+                                <p class="text-gray-600 text-sm">Ads và booking ngày càng cao. Facebook beta thu phí người dùng gắn link sản phẩm.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thay đổi 5 -->
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover md:col-span-2 lg:col-span-1">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-title mb-2">AI tràn lan nhưng không thay thế được người thật</h3>
+                                <p class="text-gray-600 text-sm">Nội dung do AI tạo ra dày đặc, dễ sao chép. Nội dung mang dấu ấn con người sẽ có lợi thế.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight Box -->
+                <div class="bg-primary text-white rounded-2xl p-6 md:p-8 text-center max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl font-semibold">
+                        "Đa số thương hiệu/cá nhân từng hot sẽ tụt lùi vì vẫn dùng cách làm cũ trong cuộc chơi đã đổi luật."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: NỘI DUNG WORKSHOP -->
+    <section class="py-12 md:py-20 bg-bg-alt">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
+                    Nội dung Workshop
+                </h2>
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Mỗi năm, Duy Muối đều đưa ra những nhận định sát với thực tế thị trường.
+                </p>
+
+                <!-- Trọng tâm 2026 - 3 Highlight Cards -->
+                <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-12">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">👥</span>
+                        </div>
+                        <h3 class="font-bold text-title mb-2">Tài sản khán giả</h3>
+                        <p class="text-gray-600 text-sm">Thay vì view ảo</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">🏆</span>
+                        </div>
+                        <h3 class="font-bold text-title mb-2">Thương hiệu bền vững</h3>
+                        <p class="text-gray-600 text-sm">Niềm tin + Bối cảnh + Vai trò</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h3 class="font-bold text-title mb-2">Con người thật</h3>
+                        <p class="text-gray-600 text-sm">Nội dung gắn với trải nghiệm thật</p>
+                    </div>
+                </div>
+
+                <!-- 5 Phần chính - List đơn giản -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
+                    <h3 class="font-bold text-lg text-title mb-6 text-center">Các phần sẽ chia sẻ trong Workshop</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-bg-alt transition-colors">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                            <span class="font-medium text-title">Xu hướng Thương hiệu & Tự truyền thông 2026</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-bg-alt transition-colors">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                            <span class="font-medium text-title">Xu hướng Nền tảng 2026</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-bg-alt transition-colors">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                            <span class="font-medium text-title">Xu hướng Bán hàng & Affiliate 2026</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-bg-alt transition-colors">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+                            <span class="font-medium text-title">Xu hướng Người xem 2026</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-bg-alt transition-colors">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
+                            <span class="font-medium text-title">AI trong 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA sau Curriculum -->
+                <div class="text-center mt-10">
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
+                        Đăng ký tham dự
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VIDEO DEMO -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-10">
+                    Xem trước một phần tư duy về Xu hướng TikTok 2026
+                </h2>
+
+                <!-- Video Placeholder -->
+                <div class="max-w-[800px] mx-auto mb-8">
+                    <div class="relative aspect-video bg-dark rounded-2xl flex items-center justify-center cursor-pointer group overflow-hidden shadow-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="relative z-10 text-center text-white">
+                            <div class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                <span class="text-4xl ml-1">▶</span>
+                            </div>
+                            <p class="font-semibold text-lg">Video: Xu hướng làm TikTok 2026 – 12 điều cần biết</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mô tả -->
+                <div class="text-center mb-8">
+                    <p class="text-gray-600 mb-6">
+                        Đây là bản demo để bạn hình dung tư duy và góc nhìn của Duy Muối.
+                    </p>
+                    <p class="font-semibold text-title mb-4">Trong webinar, toàn bộ nội dung sẽ được:</p>
+                    <ul class="inline-block text-left space-y-2 text-gray-700">
+                        <li class="flex items-center gap-2">
+                            <span class="text-success">✓</span>
+                            <span>Phân tích sâu hơn</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-success">✓</span>
+                            <span>Kết nối thành bức tranh tổng thể</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-success">✓</span>
+                            <span>Chỉ rõ bạn nên làm – nên dừng – nên thay đổi điều gì</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-base md:text-lg px-8 py-4 rounded-full btn-hover shadow-lg">
+                        👉 Nếu bạn muốn nghe toàn bộ phân tích 2026, xem chi tiết webinar tại đây
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: SPEAKER -->
+    <section class="py-12 md:py-20 bg-bg-alt">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
+                    Người chia sẻ
+                </h2>
+
+                <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
+                    <!-- Avatar Placeholder -->
+                    <div class="w-48 h-48 md:w-64 md:h-64 bg-gray-200 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <div class="text-center text-gray-400">
+                            <svg class="w-20 h-20 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm">300x300</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">DUY MUỐI</h3>
+                        <ul class="space-y-3 text-gray-700 mb-6">
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary">•</span>
+                                <span>Đã dự đoán đúng xu hướng 2025 với các case thực tế</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary">•</span>
+                                <span>Video dài >40 phút vẫn đạt view cao vì mang tới giá trị thật</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary">•</span>
+                                <span>Đồng hành cùng nhiều case thành công: Toản Dương, Lần đầu làm bố, Công Phan...</span>
+                            </li>
+                        </ul>
+
+                        <!-- Social Links -->
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.tiktok.com/@duymuoi" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                                TikTok
+                            </a>
+                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                Fanpage
+                            </a>
+                            <a href="https://www.facebook.com/groups/713294780866458" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                Cộng đồng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: AI NÊN THAM DỰ -->
+    <section class="py-12 md:py-20 bg-bg-alt">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
+                    Ai nên tham dự Workshop này?
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🎬</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Người làm nội dung / Creator / TikToker</h3>
+                        <p class="text-gray-600">Muốn biết xu hướng 2026 để định hướng nội dung</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🛒</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Seller / Chủ shop</h3>
+                        <p class="text-gray-600">Muốn hiểu người mua đang thay đổi như thế nào</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🏢</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Doanh nghiệp / Team Marketing</h3>
+                        <p class="text-gray-600">Muốn cập nhật xu hướng để lên chiến lược nội dung</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">💰</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Người làm Affiliate</h3>
+                        <p class="text-gray-600">Muốn biết cách làm affiliate nào còn hiệu quả trong 2026</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🎓</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Mentor / Chuyên gia / Người bán dịch vụ</h3>
+                        <p class="text-gray-600">Muốn hiểu xu hướng tự truyền thông để bán dịch vụ</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-3xl">🌱</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Người mới bắt đầu</h3>
+                        <p class="text-gray-600">Muốn hiểu đúng xu hướng trước khi bắt tay vào làm</p>
+                    </div>
+                </div>
+
+                <!-- Highlight Box -->
+                <div class="bg-primary text-white rounded-2xl p-6 md:p-8 text-center max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl font-semibold">
+                        "Nếu bạn đang làm nội dung, bán hàng, hoặc kinh doanh trên nền tảng video ngắn - bạn cần biết xu hướng 2026."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FOMO & LƯU Ý -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
+                    Lưu ý quan trọng
+                </h2>
+
+                <!-- 3 Phần lưu ý -->
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <!-- Giới hạn -->
+                    <div class="bg-bg-alt rounded-2xl p-6 text-center">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <p class="font-semibold text-title">Số lượng người tham gia có giới hạn</p>
+                    </div>
+
+                    <!-- Lưu ý rõ ràng -->
+                    <div class="bg-bg-alt rounded-2xl p-6 text-center">
+                        <div class="text-4xl mb-4">📌</div>
+                        <p class="font-semibold text-title">Đây là buổi chia sẻ thông tin xu hướng, không phải buổi hướng dẫn làm giàu</p>
+                    </div>
+
+                    <!-- Tham gia sớm -->
+                    <div class="bg-bg-alt rounded-2xl p-6 text-center">
+                        <div class="text-4xl mb-4">⏰</div>
+                        <p class="font-semibold text-title mb-2">Tham gia sớm trước khi:</p>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Đối thủ của bạn tham gia</li>
+                            <li>• Giai đoạn 2026 bắt đầu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Highlight Box -->
+                <div class="bg-gradient-to-r from-primary to-red-600 text-white rounded-2xl p-8 md:p-10 text-center mb-10 shadow-xl">
+                    <p class="text-xl md:text-2xl font-bold leading-relaxed">
+                        "Vì niềm tin tạo ra tiền - Cách bạn xây dựng <span class="underline decoration-2">NIỀM TIN VÀ TÀI SẢN KHÁN GIẢ</span> nằm ở đây!"
+                    </p>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
+                        👉 Đăng ký tham gia Workshop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: CTA ĐĂNG KÝ -->
+    <section id="register" class="py-12 md:py-20 bg-gradient-to-br from-dark to-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold mb-8">
+                    Đăng ký tham dự Workshop
+                </h2>
+
+                <!-- Workshop Info Box -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 max-w-2xl mx-auto text-left">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <span class="text-primary text-xl">📌</span>
+                            <div>
+                                <p class="text-white/70 text-sm">Tên Workshop</p>
+                                <p class="font-semibold text-lg">Dự đoán Xu hướng Video ngắn & Bán hàng 2026</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-primary text-xl">👤</span>
+                            <div>
+                                <p class="text-white/70 text-sm">Người hướng dẫn</p>
+                                <p class="font-semibold text-lg">Duy Muối</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-primary text-xl">⏱️</span>
+                            <div>
+                                <p class="text-white/70 text-sm">Thời lượng</p>
+                                <p class="font-semibold text-lg">3 tiếng</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-primary text-xl">💻</span>
+                            <div>
+                                <p class="text-white/70 text-sm">Hình thức</p>
+                                <p class="font-semibold text-lg">Online qua Zoom</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-primary text-xl">📅</span>
+                            <div>
+                                <p class="text-white/70 text-sm">Ngày giờ</p>
+                                <p class="font-semibold text-lg">05/02/2026 • 20:00 - 22:30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#payment" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold text-xl md:text-2xl px-12 md:px-16 py-5 md:py-6 rounded-full btn-hover shadow-lg mb-8">
+                    ĐĂNG KÝ NGAY
+                </a>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-2xl mx-auto">
+                    <p class="text-white/90 italic">
+                        "Ai nắm được xu hướng sớm sẽ có lợi thế. Không theo kịp xu hướng = bị bỏ lại phía sau."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: FOOTER -->
+    <footer class="bg-dark text-white py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Cột 1: Logo & Mô tả -->
+                <div>
+                    <h3 class="font-bold text-2xl text-white mb-2">MakeViral</h3>
+                    <p class="text-white/70">Dự đoán xu hướng 2026</p>
+                </div>
+
+                <!-- Cột 2: Liên hệ -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Liên Hệ</h4>
+                    <ul class="space-y-2 text-white/70">
+                        <li>📞 097 696 69 69</li>
+                        <li>📧 edu@makeviral.pro</li>
+                        <li>
+                            <a href="https://makeviral.pro" target="_blank" class="hover:text-white transition-colors">
+                                🌐 makeviral.pro
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Kết nối -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Kết Nối</h4>
+                    <ul class="space-y-2 text-white/70">
+                        <li>
+                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="hover:text-white transition-colors">
+                                📘 Facebook Duy Muối
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-white/50 text-sm">© 2026 MakeViral. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA MOBILE -->
+    <div id="sticky-cta" class="sticky-cta fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg p-3 md:hidden z-50">
+        <div class="flex items-center justify-between gap-3">
+            <span class="text-sm text-gray-700">Workshop 05/02 • 20:00</span>
+            <a href="#register" class="bg-primary hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full text-sm btn-hover">
+                Đăng ký ngay
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Countdown Timer - Workshop Date (05/02/2026 20:00)
+        function updateCountdown() {
+            const workshopDate = new Date('2026-02-05T20:00:00+07:00').getTime();
+            const now = new Date().getTime();
+            const distance = workshopDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+        // Accordion Toggle
+        document.querySelectorAll('.accordion-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.accordion-icon');
+
+                // Close all other accordions in the same parent
+                const parent = button.closest('.space-y-4');
+                if (parent) {
+                    parent.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('open');
+                            openContent.previousElementSibling.querySelector('.accordion-icon').classList.remove('rotate-180');
+                        }
+                    });
+                }
+
+                content.classList.toggle('open');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Sticky CTA visibility
+        const stickyCta = document.getElementById('sticky-cta');
+        const heroSection = document.getElementById('hero');
+
+        const stickyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stickyCta.classList.remove('visible');
+                } else {
+                    stickyCta.classList.add('visible');
+                }
+            });
+        }, { threshold: 0 });
+
+        stickyObserver.observe(heroSection);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
