@@ -85,19 +85,150 @@
         .sticky-cta.visible {
             transform: translateY(0);
         }
+
+        /* Phone Mockup Carousel */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 1rem;
+        }
+        .carousel-slide {
+            flex: 0 0 auto;
+            width: 280px;
+        }
+        .phone-mockup {
+            position: relative;
+            width: 240px;
+            height: 480px;
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+        }
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #000;
+            border-radius: 12px;
+            z-index: 10;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #000;
+        }
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease;
+        }
+        .carousel-btn:hover {
+            background: #FF2345;
+            color: white;
+        }
+        .carousel-btn-prev { left: 10px; }
+        .carousel-btn-next { right: 10px; }
+        @media (max-width: 768px) {
+            .carousel-slide { width: 260px; }
+            .phone-mockup { width: 220px; height: 440px; }
+            .carousel-btn { width: 40px; height: 40px; }
+        }
+
+        /* Floating Icons Animation */
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .floating-icon {
+            position: absolute;
+            color: #FF2345;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes floatRotate {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.5; }
+        }
+        .float-1 { animation: float 4s ease-in-out infinite; opacity: 0.35; }
+        .float-2 { animation: float 5s ease-in-out infinite 0.5s; opacity: 0.3; }
+        .float-3 { animation: float 6s ease-in-out infinite 1s; opacity: 0.4; }
+        .float-4 { animation: floatRotate 8s ease-in-out infinite; opacity: 0.35; }
+        .float-5 { animation: pulse 4s ease-in-out infinite; opacity: 0.3; }
+        .float-6 { animation: float 5.5s ease-in-out infinite 0.3s; opacity: 0.45; }
+        @media (max-width: 768px) {
+            .floating-icons { display: none; }
+        }
     </style>
 </head>
 <body class="font-sans text-body antialiased">
+
+    <!-- FLOATING ICONS BACKGROUND -->
+    <div class="floating-icons">
+        <!-- TikTok - top left -->
+        <svg class="floating-icon float-1" style="top:5%;left:3%;width:38px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        <!-- Play - top right -->
+        <svg class="floating-icon float-4" style="top:18%;right:4%;width:35px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <!-- Heart - middle left -->
+        <svg class="floating-icon float-3" style="top:38%;left:4%;width:32px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <!-- Star - middle right -->
+        <svg class="floating-icon float-2" style="top:52%;right:5%;width:34px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <!-- Music - lower left -->
+        <svg class="floating-icon float-5" style="top:70%;left:3%;width:36px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <!-- TikTok - lower right -->
+        <svg class="floating-icon float-6" style="top:85%;right:4%;width:40px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+    </div>
 
     <!-- STICKY HEADER -->
     <header id="sticky-header" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 py-3 px-4 md:px-8">
         <div class="max-w-6xl mx-auto flex items-center justify-between">
             <div>
                 <span class="font-bold text-xl text-title">Makeviral.Pro</span>
-                <span class="text-body text-sm ml-2 hidden sm:inline">05/02/2026 • 20:00</span>
+                <span class="text-body text-sm ml-2 hidden sm:inline">04-05/02/2026 • 20:00</span>
             </div>
             <div class="flex items-center gap-2 md:gap-3">
-                <a href="https://m.me/duymuoi.dcme" target="_blank" class="border border-primary text-primary bg-transparent hover:bg-primary hover:text-white rounded-full px-4 md:px-6 py-2 font-semibold text-sm transition-colors">
+                <a href="https://zalo.me/0976966969" target="_blank" class="border border-primary text-primary bg-transparent hover:bg-primary hover:text-white rounded-full px-4 md:px-6 py-2 font-semibold text-sm transition-colors">
                     Tư vấn
                 </a>
                 <a href="#register" class="bg-primary hover:bg-red-600 text-white rounded-full px-4 md:px-6 py-2 font-semibold text-sm transition-colors">
@@ -112,7 +243,7 @@
         <div class="max-w-6xl mx-auto px-4 text-center text-white">
             <!-- Badge -->
             <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 text-sm md:text-base">
-                Online qua Zoom • 05/02/2026 • 20:00 - 22:30
+                Workshop trực tuyến • 04-05/02/2026 • 20:00
             </div>
 
             <!-- Headline -->
@@ -128,16 +259,16 @@
             <!-- Info -->
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base opacity-80 mb-8">
                 <div class="flex items-center gap-2">
-                    <span>👤</span>
-                    <span>Người hướng dẫn: <strong>Duy Muối</strong></span>
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                    <span>Người chia sẻ: <strong>Duy Muối</strong></span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span>⏱️</span>
-                    <span>Thời lượng: <strong>3 tiếng</strong></span>
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    <span>Thời lượng: <strong>6+ tiếng (2 ngày)</strong></span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span>💻</span>
-                    <span>Online qua Zoom</span>
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+                    <span>Workshop trực tuyến (online)</span>
                 </div>
             </div>
 
@@ -161,104 +292,332 @@
                 </div>
             </div>
 
+            <!-- Banner -->
+            <div class="mb-8 max-w-3xl mx-auto">
+                <img src="assets/banner/banner.jpg" alt="Workshop Banner" class="w-full rounded-xl border-2 border-white" style="box-shadow: 0 8px 30px rgba(0,0,0,0.5)">
+            </div>
+
             <!-- CTA Button -->
             <a href="#register" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full btn-hover shadow-lg">
                 Đăng ký tham dự
             </a>
-        </div>
+
+                    </div>
     </section>
 
-    <!-- SECTION 2: VÌ SAO CẦN CẬP NHẬT XU HƯỚNG MỚI -->
+    <!-- SECTION 2: CUỐI NĂM 2025 - VẤN ĐỀ & THAY ĐỔI -->
     <section class="py-12 md:py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
             <div class="fade-in">
+                <!-- Section Title -->
                 <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
-                    Vì sao bạn cần cập nhật xu hướng 2026?
+                    Cuối năm 2025, bạn có đang rơi vào tình trạng này?
                 </h2>
 
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <!-- Card 1 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
-                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">⚡</span>
+                <!-- 5 Vấn đề Cards -->
+                <div class="flex flex-wrap justify-center gap-6 mb-16">
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-bg-alt rounded-2xl p-6 card-hover border-l-4 border-primary">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-primary font-bold">1</span>
                         </div>
-                        <h3 class="font-bold text-lg text-title mb-3">Thị trường thay đổi rất nhanh</h3>
-                        <p class="text-gray-600">Nếu không cập nhật, nội dung sẽ sớm không còn phù hợp với người xem</p>
+                        <p class="text-gray-700">Bạn xây kênh, làm nội dung nhưng <strong>không có kết quả</strong> về view và doanh số</p>
                     </div>
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-bg-alt rounded-2xl p-6 card-hover border-l-4 border-primary">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-primary font-bold">2</span>
+                        </div>
+                        <p class="text-gray-700">Bạn bán hàng, làm affiliate nhưng <strong>không tìm ra hướng nội dung</strong>, chi phí ngày càng cao và dễ bị đối thủ sao chép</p>
+                    </div>
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-bg-alt rounded-2xl p-6 card-hover border-l-4 border-primary">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-primary font-bold">3</span>
+                        </div>
+                        <p class="text-gray-700">Bạn kinh doanh dịch vụ, quay video nhưng <strong>người xem không đủ tin</strong> để lựa chọn bạn</p>
+                    </div>
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-bg-alt rounded-2xl p-6 card-hover border-l-4 border-primary">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-primary font-bold">4</span>
+                        </div>
+                        <p class="text-gray-700">Bạn là doanh nghiệp, <strong>đổ nhiều tiền vào truyền thông</strong> nhưng không hiệu quả</p>
+                    </div>
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-bg-alt rounded-2xl p-6 card-hover border-l-4 border-primary">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-primary font-bold">5</span>
+                        </div>
+                        <p class="text-gray-700">Bạn thấy được 2026 sẽ khó khăn hơn, nhưng <strong>chưa biết điều chỉnh từ đâu</strong></p>
+                    </div>
+                </div>
 
-                    <!-- Card 2 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
-                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🚀</span>
-                        </div>
-                        <h3 class="font-bold text-lg text-title mb-3">Ai nắm được xu hướng sớm sẽ có lợi thế</h3>
-                        <p class="text-gray-600">Xu hướng mới = cơ hội mới. Đi trước một bước, bạn có lợi thế cạnh tranh lớn</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 md:p-8 card-hover">
-                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">⏳</span>
-                        </div>
-                        <h3 class="font-bold text-lg text-title mb-3">Không theo kịp = bị bỏ lại phía sau</h3>
-                        <p class="text-gray-600">Cách làm cũ không còn hiệu quả trong cuộc chơi đã đổi luật</p>
-                    </div>
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
+                        Xem toàn cảnh cuộc chơi 2026
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: CASE STUDY THÀNH CÔNG -->
+    <!-- IMAGE DIVIDER: SECTION 2-3 -->
+    <div class="py-8 md:py-12 bg-bg-alt">
+        <div class="max-w-4xl mx-auto px-4">
+            <img src="assets/background/section-2-va-3.webp" alt="Workshop Xu hướng 2026" class="w-full rounded-2xl shadow-lg">
+        </div>
+    </div>
+
+    <!-- SECTION 3: NHÌN LẠI DỰ ĐOÁN 2025 -->
     <section class="py-12 md:py-20 bg-bg-alt">
         <div class="max-w-6xl mx-auto px-4">
             <div class="fade-in">
                 <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
-                    Case thực tế đã chứng minh
+                    Nhìn lại dự đoán xu hướng 2025 - Duy Muối
                 </h2>
-
-                <!-- Social Proof Counter -->
-                <p class="text-center text-primary font-semibold text-lg mb-12 animate-pulse">
-                    🔥 127 người đã đăng ký workshop này
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Đây là những gì đã diễn ra trong năm qua!
                 </p>
 
-                <div class="flex flex-wrap justify-center gap-6 mb-8">
-                    <!-- Case 1 -->
+                <div class="flex flex-wrap justify-center gap-6 mb-10">
+                    <!-- Card 1 -->
                     <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
-                            <span class="text-success text-xl">✓</span>
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-white font-bold">1</span>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Anh Toản Dương</h3>
-                        <p class="text-gray-500 text-sm mb-2">Công ty du lịch</p>
-                        <p class="text-gray-700">Tự truyền thông bán sản phẩm, không cần booking bên ngoài</p>
+                        <h3 class="font-bold text-lg mb-2">Tự truyền thông trở thành điều bắt buộc</h3>
+                        <p class="text-gray-600">Cá nhân và doanh nghiệp không còn trông chờ vào booking hay trung gian, buộc phải biết làm nội dung của mình.</p>
                     </div>
 
-                    <!-- Case 2 -->
+                    <!-- Card 2 -->
                     <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
-                            <span class="text-success text-xl">✓</span>
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-white font-bold">2</span>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Kênh "Lần đầu làm bố"</h3>
-                        <p class="text-gray-500 text-sm mb-2">Content creator</p>
-                        <p class="text-gray-700">Nhắc đến trị rạn bụng = người xem nhớ tới đầu tiên</p>
+                        <h3 class="font-bold text-lg mb-2">Con người thật và trải nghiệm thật lên ngôi</h3>
+                        <p class="text-gray-600">Người xem nhớ đến những người làm nội dung đời thường, gần gũi, có trải nghiệm thật hơn là các hình ảnh hoàn hảo, trau chuốt.</p>
                     </div>
 
-                    <!-- Case 3 -->
+                    <!-- Card 3 -->
                     <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-4">
-                            <span class="text-success text-xl">✓</span>
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-white font-bold">3</span>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Công Phan</h3>
-                        <p class="text-gray-500 text-sm mb-2">Multi-platform creator</p>
-                        <p class="text-gray-700">1 concept lặp lại hàng trăm video, đa nền tảng, tối ưu doanh thu</p>
+                        <h3 class="font-bold text-lg mb-2">AI bắt đầu thay thế nội dung bán hàng thuần công thức</h3>
+                        <p class="text-gray-600">Những nội dung rập khuôn, lặp lại, không có trải nghiệm cá nhân dễ bị AI sao chép và làm hay hơn.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Nền tảng siết chặt nội dung bán hàng</h3>
+                        <p class="text-gray-600">Video bán hàng ăn sổi bị hạn chế phân phối do nhiều chính sách của các nền tảng. View giảm, đơn giảm nếu nội dung không đủ giá trị cho người xem.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-white font-bold">5</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Nội dung có giá trị dần thay thế nội dung giải trí nhanh</h3>
+                        <p class="text-gray-600">Người xem bắt đầu chọn lọc hơn. Những video thuần giải trí, chỉ gây cười, xem cho vui ngày càng khó giữ chân và không tạo chuyển đổi.</p>
                     </div>
                 </div>
 
-                <p class="text-center text-lg text-gray-600 mb-8">
-                    <strong class="text-title">500+</strong> học viên đã tham gia các khóa học của Duy Muối
+                <!-- Social Proof Counter -->
+                <p class="text-center text-primary font-semibold text-lg mb-8 animate-pulse">
+                    <svg class="w-5 h-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> 127 người đã đăng ký workshop này
                 </p>
 
-                <!-- CTA sau Case Study -->
+                <!-- CTA -->
                 <div class="text-center">
+                    <p class="text-lg text-gray-700 mb-4">Dự đoán 2025 đã đúng. Vậy 2026 sẽ có gì khác?</p>
+                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
+                        Đăng ký Workshop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CASE THỰC TẾ ĐÃ CHỨNG MINH -->
+    <section class="py-12 md:py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="fade-in">
+                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
+                    Case thực tế đã chứng minh
+                </h2>
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Những kênh đã áp dụng xu hướng và thành công
+                </p>
+
+                <!-- Carousel -->
+                <div class="carousel-container relative">
+                    <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <div class="carousel-track" id="caseCarousel">
+                        <!-- Case 1: Toản Dương Days -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/toan-duong-days.webp" alt="Toản Dương Days">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân & bán dịch vụ</span>
+                                <h4 class="font-bold text-title text-lg">Toản Dương Days</h4>
+                                <p class="text-gray-600 text-sm mt-1">CEO tự truyền thông bán dịch vụ tour du lịch, không phụ thuộc quảng cáo và booking</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 2: Quân Trưởng Họ -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/quan-truong-ho.webp" alt="Quân Trưởng Họ">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân</span>
+                                <h4 class="font-bold text-title text-lg">Quân Trưởng Họ</h4>
+                                <p class="text-gray-600 text-sm mt-1">Dùng con người chân thật, cảm xúc thật để tự truyền thông câu chuyện của gia đình mình</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 3: Chùa Giàng Hmong -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/chua-giang-hmong.webp" alt="Chùa Giàng Hmong">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân & bán hàng</span>
+                                <h4 class="font-bold text-title text-lg">Chùa Giàng Hmong</h4>
+                                <p class="text-gray-600 text-sm mt-1">Kênh người dân tộc, dùng bối cảnh & vai trò chân thật bán nông sản quê hương</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 4: Kiến Trúc Phong Thủy Kỳ Nam -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/kien-truc-phong-thuy-ky-nam.webp" alt="Kiến Trúc Phong Thủy Kỳ Nam">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu doanh nghiệp & bán dịch vụ</span>
+                                <h4 class="font-bold text-title text-lg">Kiến Trúc Phong Thủy Kỳ Nam</h4>
+                                <p class="text-gray-600 text-sm mt-1">Chuyên gia tự truyền thông, bán dịch vụ chuyên môn của mình trên đa nền tảng</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 5: Lần đầu làm bố tiểu Tom -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/lan-dau-lam-bo-tieu-tom.webp" alt="Lần đầu làm bố tiểu Tom">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân & bán hàng affiliate</span>
+                                <h4 class="font-bold text-title text-lg">Lần đầu làm bố tiểu Tom</h4>
+                                <p class="text-gray-600 text-sm mt-1">Vlog gia đình, làm video sáng tạo xen kẽ Affiliate → ra view và đơn trên nhiều nền tảng</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 6: Hương bình hoa -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/huong-binh-hoa.webp" alt="Hương bình hoa">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu doanh nghiệp & bán hàng</span>
+                                <h4 class="font-bold text-title text-lg">Hương bình hoa</h4>
+                                <p class="text-gray-600 text-sm mt-1">Kênh nghề truyền thống (gốm), quảng bá và bán sản phẩm trên nền tảng</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 7: Cô Sơn U55 -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/co-son-u55.webp" alt="Cô Sơn U55">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân</span>
+                                <h4 class="font-bold text-title text-lg">Cô Sơn U55</h4>
+                                <p class="text-gray-600 text-sm mt-1">Creator lớn tuổi, ghi lại hành trình tự học tiếng Anh, làm 100+ video để đạt được video viral đầu tiên</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 8: Kỳ Mai Daily -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/ky-mai-daily.webp" alt="Kỳ Mai Daily">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân & booking - affiliate</span>
+                                <h4 class="font-bold text-title text-lg">Kỳ Mai Daily</h4>
+                                <p class="text-gray-600 text-sm mt-1">Dùng bối cảnh và vai trò thật, tự truyền thông câu chuyện của gia đình mình</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 9: Mạnh Tổn Thương -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/manh-ton-thuong.webp" alt="Mạnh Tổn Thương">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân</span>
+                                <h4 class="font-bold text-title text-lg">Mạnh Tổn Thương</h4>
+                                <p class="text-gray-600 text-sm mt-1">Kênh chủ đề LGBT, dùng con người chân thật, xây nội dung từ mối quan hệ với người xem</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 10: Phan Hoa -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/phan-hoa.webp" alt="Phan Hoa">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Bán hàng Affiliate</span>
+                                <h4 class="font-bold text-title text-lg">Phan Hoa</h4>
+                                <p class="text-gray-600 text-sm mt-1">Làm video Affiliate sáng tạo, lồng sản phẩm gia dụng vào nội dung đời sống → ra đơn trên nhiều nền tảng</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 11: Pho ở quê -->
+                        <div class="carousel-slide">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <img src="assets/cases/pho-o-que.webp" alt="Pho ở quê">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">Thương hiệu cá nhân</span>
+                                <h4 class="font-bold text-title text-lg">Pho ở quê</h4>
+                                <p class="text-gray-600 text-sm mt-1">Dùng bối cảnh tạo chuỗi nội dung viral trên kênh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-10">
                     <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-lg px-10 py-4 rounded-full btn-hover shadow-lg">
                         Đăng ký ngay
                     </a>
@@ -272,15 +631,15 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="fade-in">
                 <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
-                    Thị trường 2026 sẽ khác như thế nào?
+                    2026 - Cuộc chơi đã đổi luật!
                 </h2>
                 <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
                     5 thay đổi lớn bạn cần biết để không bị bỏ lại
                 </p>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <div class="flex flex-wrap justify-center gap-6 mb-10">
                     <!-- Thay đổi 1 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
                             <div>
@@ -291,7 +650,7 @@
                     </div>
 
                     <!-- Thay đổi 2 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
                             <div>
@@ -302,7 +661,7 @@
                     </div>
 
                     <!-- Thay đổi 3 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
                             <div>
@@ -313,18 +672,18 @@
                     </div>
 
                     <!-- Thay đổi 4 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
                             <div>
-                                <h3 class="font-bold text-lg text-title mb-2">Chi phí quảng cáo tăng mạnh</h3>
-                                <p class="text-gray-600 text-sm">Ads và booking ngày càng cao. Facebook beta thu phí người dùng gắn link sản phẩm.</p>
+                                <h3 class="font-bold text-lg text-title mb-2">Chi phí truyền thông & bán hàng tăng mạnh</h3>
+                                <p class="text-gray-600 text-sm">Ads đắt, booking khó hiệu quả. Các nền tảng tăng chi phí đối với Seller, Creator bán hàng, lợi nhuận khó kiếm.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Thay đổi 5 -->
-                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover md:col-span-2 lg:col-span-1">
+                    <div class="bg-bg-alt rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
                             <div>
@@ -338,7 +697,7 @@
                 <!-- Highlight Box -->
                 <div class="bg-primary text-white rounded-2xl p-6 md:p-8 text-center max-w-4xl mx-auto">
                     <p class="text-lg md:text-xl font-semibold">
-                        "Đa số thương hiệu/cá nhân từng hot sẽ tụt lùi vì vẫn dùng cách làm cũ trong cuộc chơi đã đổi luật."
+                        "70% thương hiệu từng hot sẽ biến mất, 30% bứt phá. Hãy chọn phe 30% bứt phá!"
                     </p>
                 </div>
             </div>
@@ -350,36 +709,36 @@
         <div class="max-w-5xl mx-auto px-4">
             <div class="fade-in">
                 <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-4">
-                    Nội dung Workshop
+                    Toàn cảnh xu hướng 2026 trong workshop này
                 </h2>
-                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-                    Mỗi năm, Duy Muối đều đưa ra những nhận định sát với thực tế thị trường.
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                    Mỗi năm, Duy Muối đều đưa ra những nhận định sát với thực tế thị trường. Rất nhiều người đã dựa vào đó để điều chỉnh sớm chiến lược nội dung và bán hàng, thay vì bị động chạy theo sau.
                 </p>
 
                 <!-- Trọng tâm 2026 - 3 Highlight Cards -->
                 <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-12">
                     <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">👥</span>
+                            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
                         <h3 class="font-bold text-title mb-2">Tài sản khán giả</h3>
-                        <p class="text-gray-600 text-sm">Thay vì view ảo</p>
+                        <p class="text-gray-600 text-sm">Xây tệp người theo dõi thật, có khả năng quay lại và mua nhiều lần. Thay vì chạy theo lượt xem ngắn hạn</p>
                     </div>
 
                     <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">🏆</span>
+                            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
                         </div>
                         <h3 class="font-bold text-title mb-2">Thương hiệu bền vững</h3>
-                        <p class="text-gray-600 text-sm">Niềm tin + Bối cảnh + Vai trò</p>
+                        <p class="text-gray-600 text-sm">Niềm tin + Bối cảnh + Vai trò. Không phải hình ảnh hoàn hảo hay chiêu trò đu trend ngắn hạn</p>
                     </div>
 
                     <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 border-primary">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">🎯</span>
+                            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                         </div>
                         <h3 class="font-bold text-title mb-2">Con người thật</h3>
-                        <p class="text-gray-600 text-sm">Nội dung gắn với trải nghiệm thật</p>
+                        <p class="text-gray-600 text-sm">Nội dung xuất phát từ trải nghiệm thật và góc nhìn cá nhân, thứ mà AI hay các công thức sao chép không thể thay thế.</p>
                     </div>
                 </div>
 
@@ -420,54 +779,198 @@
         </div>
     </section>
 
-    <!-- SECTION 6: VIDEO DEMO -->
-    <section class="py-12 md:py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
+    <!-- SECTION 9: CTA ĐĂNG KÝ -->
+    <section id="register" class="py-12 md:py-20 bg-gradient-to-br from-dark to-primary text-white">
+        <div class="max-w-5xl mx-auto px-4 text-center">
             <div class="fade-in">
-                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-10">
-                    Xem trước một phần tư duy về Xu hướng TikTok 2026
+                <h2 class="text-2xl md:text-4xl font-bold mb-8">
+                    Đăng ký tham dự Workshop
                 </h2>
 
-                <!-- Video Placeholder -->
-                <div class="max-w-[800px] mx-auto mb-8">
-                    <div class="relative aspect-video bg-dark rounded-2xl flex items-center justify-center cursor-pointer group overflow-hidden shadow-xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="relative z-10 text-center text-white">
-                            <div class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                                <span class="text-4xl ml-1">▶</span>
+                <!-- Workshop Info Box -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-10 max-w-2xl mx-auto text-left">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">Tên Workshop</p>
+                                <p class="font-semibold text-lg">Dự đoán Xu hướng Video ngắn & Bán hàng 2026</p>
                             </div>
-                            <p class="font-semibold text-lg">Video: Xu hướng làm TikTok 2026 – 12 điều cần biết</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">Người chia sẻ</p>
+                                <p class="font-semibold text-lg">Duy Muối</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">Thời lượng</p>
+                                <p class="font-semibold text-lg">6+ tiếng (2 ngày)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">Hình thức</p>
+                                <p class="font-semibold text-lg">Online</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">Ngày giờ</p>
+                                <p class="font-semibold text-lg">04-05/02/2026 • 20:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mô tả -->
-                <div class="text-center mb-8">
-                    <p class="text-gray-600 mb-6">
-                        Đây là bản demo để bạn hình dung tư duy và góc nhìn của Duy Muối.
-                    </p>
-                    <p class="font-semibold text-title mb-4">Trong webinar, toàn bộ nội dung sẽ được:</p>
-                    <ul class="inline-block text-left space-y-2 text-gray-700">
-                        <li class="flex items-center gap-2">
-                            <span class="text-success">✓</span>
-                            <span>Phân tích sâu hơn</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-success">✓</span>
-                            <span>Kết nối thành bức tranh tổng thể</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-success">✓</span>
-                            <span>Chỉ rõ bạn nên làm – nên dừng – nên thay đổi điều gì</span>
-                        </li>
-                    </ul>
+                <!-- PRICING SECTION -->
+                <h3 class="text-xl md:text-2xl font-bold mb-6">Chọn gói tham dự</h3>
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+                    <!-- GÓI 1: Workshop -->
+                    <div class="bg-white text-dark rounded-2xl p-6 md:p-8 shadow-xl">
+                        <div class="text-center mb-6">
+                            <h4 class="text-lg font-bold text-title mb-2">Workshop Dự Đoán Xu Hướng 2026</h4>
+                            <div class="text-3xl md:text-4xl font-bold text-primary">880.000đ</div>
+                        </div>
+                        <ul class="space-y-3 text-left text-gray-700 mb-6">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>2 buổi workshop (04-05/02/2026)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Recap tóm tắt nội dung</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Mindmap xu hướng 2026</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Record xem lại (trong vòng 1 năm)</span>
+                            </li>
+                        </ul>
+                        <a href="https://payxh.makeviral.pro/goi1" target="_blank" data-package="goi1" class="utm-link block w-full bg-primary hover:bg-red-600 text-white font-bold text-lg py-4 rounded-full btn-hover text-center">
+                            Đăng ký Gói 1
+                        </a>
+                    </div>
+
+                    <!-- GÓI 2: Workshop + Membership -->
+                    <div class="bg-white text-dark rounded-2xl p-6 md:p-8 shadow-xl border-2 relative" style="border-color: #ebb36c">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-dark text-sm font-bold px-4 py-1 rounded-full" style="background: linear-gradient(135deg, #ffe1b4, #ebb36c)">
+                            Tiết kiệm 300K
+                        </div>
+                        <div class="text-center mb-6">
+                            <h4 class="text-lg font-bold text-title mb-2">Workshop + Membership</h4>
+                            <div class="text-gray-400 line-through text-lg">4.700.000đ</div>
+                            <div class="text-3xl md:text-4xl font-bold" style="color: #d59d30">4.400.000đ</div>
+                        </div>
+                        <ul class="space-y-3 text-left text-gray-700 mb-6">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Tất cả quyền lợi Gói 1 (2 buổi workshop, Recap, Mindmap, Record xem lại trong 1 năm)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Membership 3 tháng (trị giá 3.900.000đ)</span>
+                            </li>
+                        </ul>
+                        <a href="https://payxh.makeviral.pro/goi2" target="_blank" data-package="goi2" class="utm-link block w-full text-dark font-bold text-lg py-4 rounded-full btn-hover text-center" style="background: linear-gradient(135deg, #ffe1b4, #ebb36c)">
+                            Đăng ký Gói 2
+                        </a>
+                    </div>
                 </div>
 
-                <!-- CTA Button -->
-                <div class="text-center">
-                    <a href="#register" class="inline-block bg-primary hover:bg-red-600 text-white font-bold text-base md:text-lg px-8 py-4 rounded-full btn-hover shadow-lg">
-                        👉 Nếu bạn muốn nghe toàn bộ phân tích 2026, xem chi tiết webinar tại đây
-                    </a>
+                <!-- MEMBERSHIP NOTE BOX -->
+                <div class="max-w-xl mx-auto mt-8 mb-10">
+                    <div class="border-2 border-dashed rounded-2xl p-6 text-left" style="background: linear-gradient(135deg, rgba(45,207,102,0.2), rgba(255,35,69,0.2)); border-color: rgba(45,207,102,0.5)">
+                        <div class="text-center mb-4">
+                            <svg class="w-8 h-8 mx-auto" style="color: #2dcf66" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+                            <h4 class="text-lg font-bold text-white mt-2">DÀNH CHO THÀNH VIÊN MEMBERSHIP</h4>
+                        </div>
+                        <p class="text-white/80 mb-4">Bạn đã có thể xem Record miễn phí sau 1 tuần.</p>
+                        <p class="text-white/90 mb-3">Nhưng nếu muốn:</p>
+                        <ul class="space-y-2 text-white/90 mb-4">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>Xem LIVE cùng 500+ người - năng lượng khác hoàn toàn</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>Hỏi đáp trực tiếp với Duy Muối</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>Nhận Mindmap + Recap ngay sau buổi học</span>
+                            </li>
+                        </ul>
+                        <p class="text-lg font-bold text-white mb-3">
+                            → Giá ưu đãi MBS: <span style="color: #2dcf66">500.000đ</span> <span class="text-white/60 text-sm">(tiết kiệm 380k)</span>
+                        </p>
+                        <p class="text-white/70 text-sm flex items-start gap-2">
+                            <svg class="w-4 h-4 text-white/70 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span>Vui lòng kiểm tra tin nhắn trên hệ thống Membership để đăng ký</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-2xl mx-auto">
+                    <p class="text-white/90 italic">
+                        "Ai nắm được xu hướng sớm sẽ có lợi thế. Không theo kịp xu hướng = bị bỏ lại phía sau."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VIDEO DEMO -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <!-- 2 Column Layout -->
+                <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-14">
+                    <!-- Cột trái: Text (60%) -->
+                    <div class="lg:w-[58%] order-2 lg:order-1 flex flex-col justify-center">
+                        <h2 class="text-2xl md:text-4xl font-bold text-title mb-6 text-center lg:text-left">
+                            Hé lộ một phần<br><span class="text-primary">"Xu hướng video ngắn 2026"</span>
+                        </h2>
+                        <p class="text-gray-600 mb-6">
+                            Đây là bản xem trước, giúp bạn hình dung cách Duy Muối phân tích xu hướng và nhìn thị trường 2026.
+                        </p>
+                        <p class="font-semibold text-title mb-4">Trong Workshop, toàn bộ nội dung sẽ được:</p>
+                        <ul class="space-y-3 text-gray-700 mb-6">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Phân tích sâu và có hệ thống để bạn ứng dụng</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Kết nối thành bức tranh tổng thể của thị trường 2026</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Chỉ rõ bạn nên làm gì – nên dừng gì – nên thay đổi điều gì</span>
+                            </li>
+                        </ul>
+                        <a href="#register" class="inline-flex items-center gap-2 bg-primary hover:bg-red-600 text-white font-bold text-base px-6 py-3 rounded-full btn-hover shadow-lg w-fit">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            Xem chi tiết workshop
+                        </a>
+                    </div>
+
+                    <!-- Cột phải: Phone Mockup (40%) -->
+                    <div class="lg:w-[42%] order-1 lg:order-2 flex justify-center">
+                        <div class="phone-mockup" style="width: 270px; height: 540px;">
+                            <div class="phone-screen">
+                                <iframe src="https://www.youtube.com/embed/17wMhxtuW8c" title="Xu hướng video ngắn 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -477,49 +980,54 @@
     <section class="py-12 md:py-20 bg-bg-alt">
         <div class="max-w-6xl mx-auto px-4">
             <div class="fade-in">
-                <h2 class="text-2xl md:text-4xl font-bold text-center text-title mb-12">
-                    Người chia sẻ
-                </h2>
-
                 <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-                    <!-- Avatar Placeholder -->
-                    <div class="w-48 h-48 md:w-64 md:h-64 bg-gray-200 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <div class="text-center text-gray-400">
-                            <svg class="w-20 h-20 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm">300x300</span>
-                        </div>
+                    <!-- Avatar Duy Muối - Hình tròn, to hơn -->
+                    <div class="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 shadow-xl border-4 border-white">
+                        <img src="assets/ava-duy-muoi/ava.webp" alt="Duy Muối" class="w-full h-full object-cover">
                     </div>
 
                     <div>
+                        <!-- Badge "Người chia sẻ" nhỏ, khung vuông màu -->
+                        <span class="inline-block bg-primary text-white text-sm font-medium px-3 py-1 rounded mb-3">Người chia sẻ</span>
                         <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">DUY MUỐI</h3>
                         <ul class="space-y-3 text-gray-700 mb-6">
                             <li class="flex items-start gap-3">
-                                <span class="text-primary">•</span>
-                                <span>Đã dự đoán đúng xu hướng 2025 với các case thực tế</span>
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>Đồng sáng lập DCME – agency sản xuất nội dung video ngắn</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-primary">•</span>
-                                <span>Video dài >40 phút vẫn đạt view cao vì mang tới giá trị thật</span>
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>7 năm thực chiến video ngắn trên nhiều nền tảng (TikTok, Facebook, YouTube…)</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-primary">•</span>
-                                <span>Đồng hành cùng nhiều case thành công: Toản Dương, Lần đầu làm bố, Công Phan...</span>
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>Đào tạo hơn 10.000 người làm video marketing và xây kênh nội dung</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>Cố vấn chiến lược nội dung cho nhiều creator, seller và doanh nghiệp top đầu</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>Nhiều năm liên tiếp đưa ra nhận định sớm về xu hướng (2024, 2025 và các năm trước), đã được kiểm chứng qua nhiều case thực tế</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                <span>4.000+ người đã tham gia các buổi chia sẻ xu hướng hằng năm</span>
                             </li>
                         </ul>
 
-                        <!-- Social Links -->
+                        <!-- Social Links - Bo khung viền -->
                         <div class="flex flex-wrap gap-3">
-                            <a href="https://www.tiktok.com/@duymuoi" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                            <a href="https://www.tiktok.com/@duymuoi" target="_blank" class="inline-flex items-center gap-2 bg-white border border-gray-300 hover:border-primary hover:bg-primary hover:text-white text-body px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
                                 TikTok
                             </a>
-                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="inline-flex items-center gap-2 bg-white border border-gray-300 hover:border-primary hover:bg-primary hover:text-white text-body px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                                 Fanpage
                             </a>
-                            <a href="https://www.facebook.com/groups/713294780866458" target="_blank" class="inline-flex items-center gap-2 bg-bg-alt hover:bg-primary hover:text-white text-body px-4 py-2 rounded-full text-sm transition-colors">
+                            <a href="https://www.facebook.com/groups/713294780866458" target="_blank" class="inline-flex items-center gap-2 bg-white border border-gray-300 hover:border-primary hover:bg-primary hover:text-white text-body px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                                 Cộng đồng
                             </a>
@@ -538,53 +1046,45 @@
                     Ai nên tham dự Workshop này?
                 </h2>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                <div class="flex flex-wrap justify-center gap-6 mb-10">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🎬</span>
+                            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Người làm nội dung / Creator / TikToker</h3>
-                        <p class="text-gray-600">Muốn biết xu hướng 2026 để định hướng nội dung</p>
+                        <p class="text-gray-600">Muốn biết xu hướng 2026 để làm nội dung hiệu quả</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🛒</span>
+                            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Seller / Chủ shop</h3>
-                        <p class="text-gray-600">Muốn hiểu người mua đang thay đổi như thế nào</p>
+                        <p class="text-gray-600">Muốn hiểu người mua đang thay đổi ra sao để điều chỉnh nội dung bán, không phụ thuộc ads</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🏢</span>
+                            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Doanh nghiệp / Team Marketing</h3>
-                        <p class="text-gray-600">Muốn cập nhật xu hướng để lên chiến lược nội dung</p>
+                        <p class="text-gray-600">Cần cập nhật xu hướng để xây chiến lược nội dung dài hạn, tránh thử sai tốn chi phí</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">💰</span>
+                            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Người làm Affiliate</h3>
-                        <p class="text-gray-600">Muốn biết cách làm affiliate nào còn hiệu quả trong 2026</p>
+                        <p class="text-gray-600">Muốn biết cách làm affiliate nào còn hiệu quả khi nền tảng cạnh tranh cao</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🎓</span>
+                            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Mentor / Chuyên gia / Người bán dịch vụ</h3>
-                        <p class="text-gray-600">Muốn hiểu xu hướng tự truyền thông để bán dịch vụ</p>
-                    </div>
-
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-3xl">🌱</span>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Người mới bắt đầu</h3>
-                        <p class="text-gray-600">Muốn hiểu đúng xu hướng trước khi bắt tay vào làm</p>
+                        <p class="text-gray-600">Cần hiểu xu hướng tự truyền thông để xây niềm tin và bán dịch vụ</p>
                     </div>
                 </div>
 
@@ -610,23 +1110,23 @@
                 <div class="grid md:grid-cols-3 gap-6 mb-10">
                     <!-- Giới hạn -->
                     <div class="bg-bg-alt rounded-2xl p-6 text-center">
-                        <div class="text-4xl mb-4">🔒</div>
+                        <div class="mb-4"><svg class="w-10 h-10 text-primary mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
                         <p class="font-semibold text-title">Số lượng người tham gia có giới hạn</p>
                     </div>
 
                     <!-- Lưu ý rõ ràng -->
                     <div class="bg-bg-alt rounded-2xl p-6 text-center">
-                        <div class="text-4xl mb-4">📌</div>
+                        <div class="mb-4"><svg class="w-10 h-10 text-primary mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg></div>
                         <p class="font-semibold text-title">Đây là buổi chia sẻ thông tin xu hướng, không phải buổi hướng dẫn làm giàu</p>
                     </div>
 
                     <!-- Tham gia sớm -->
                     <div class="bg-bg-alt rounded-2xl p-6 text-center">
-                        <div class="text-4xl mb-4">⏰</div>
+                        <div class="mb-4"><svg class="w-10 h-10 text-primary mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                         <p class="font-semibold text-title mb-2">Tham gia sớm trước khi:</p>
                         <ul class="text-gray-600 text-sm space-y-1">
-                            <li>• Đối thủ của bạn tham gia</li>
-                            <li>• Giai đoạn 2026 bắt đầu</li>
+                            <li class="flex items-center justify-center gap-1"><svg class="w-3 h-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg> Đối thủ của bạn tham gia</li>
+                            <li class="flex items-center justify-center gap-1"><svg class="w-3 h-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg> Giai đoạn 2026 bắt đầu</li>
                         </ul>
                     </div>
                 </div>
@@ -648,68 +1148,6 @@
         </div>
     </section>
 
-    <!-- SECTION 9: CTA ĐĂNG KÝ -->
-    <section id="register" class="py-12 md:py-20 bg-gradient-to-br from-dark to-primary text-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <div class="fade-in">
-                <h2 class="text-2xl md:text-4xl font-bold mb-8">
-                    Đăng ký tham dự Workshop
-                </h2>
-
-                <!-- Workshop Info Box -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 max-w-2xl mx-auto text-left">
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <span class="text-primary text-xl">📌</span>
-                            <div>
-                                <p class="text-white/70 text-sm">Tên Workshop</p>
-                                <p class="font-semibold text-lg">Dự đoán Xu hướng Video ngắn & Bán hàng 2026</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <span class="text-primary text-xl">👤</span>
-                            <div>
-                                <p class="text-white/70 text-sm">Người hướng dẫn</p>
-                                <p class="font-semibold text-lg">Duy Muối</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <span class="text-primary text-xl">⏱️</span>
-                            <div>
-                                <p class="text-white/70 text-sm">Thời lượng</p>
-                                <p class="font-semibold text-lg">3 tiếng</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <span class="text-primary text-xl">💻</span>
-                            <div>
-                                <p class="text-white/70 text-sm">Hình thức</p>
-                                <p class="font-semibold text-lg">Online qua Zoom</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <span class="text-primary text-xl">📅</span>
-                            <div>
-                                <p class="text-white/70 text-sm">Ngày giờ</p>
-                                <p class="font-semibold text-lg">05/02/2026 • 20:00 - 22:30</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#payment" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold text-xl md:text-2xl px-12 md:px-16 py-5 md:py-6 rounded-full btn-hover shadow-lg mb-8">
-                    ĐĂNG KÝ NGAY
-                </a>
-
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-2xl mx-auto">
-                    <p class="text-white/90 italic">
-                        "Ai nắm được xu hướng sớm sẽ có lợi thế. Không theo kịp xu hướng = bị bỏ lại phía sau."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- SECTION 9: FOOTER -->
     <footer class="bg-dark text-white py-12 md:py-16">
         <div class="max-w-6xl mx-auto px-4">
@@ -724,11 +1162,22 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Liên Hệ</h4>
                     <ul class="space-y-2 text-white/70">
-                        <li>📞 097 696 69 69</li>
-                        <li>📧 edu@makeviral.pro</li>
-                        <li>
-                            <a href="https://makeviral.pro" target="_blank" class="hover:text-white transition-colors">
-                                🌐 makeviral.pro
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:0976966969" class="hover:text-white transition-colors">097 696 69 69</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:0922687777" class="hover:text-white transition-colors">0922 687 777</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span>edu@makeviral.pro</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <a href="https://makeviral.pro" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                                <span>makeviral.pro</span>
                             </a>
                         </li>
                     </ul>
@@ -739,8 +1188,9 @@
                     <h4 class="font-semibold text-white mb-4">Kết Nối</h4>
                     <ul class="space-y-2 text-white/70">
                         <li>
-                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="hover:text-white transition-colors">
-                                📘 Facebook Duy Muối
+                            <a href="https://www.facebook.com/duymuoi.dcme" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                <span>Facebook Duy Muối</span>
                             </a>
                         </li>
                     </ul>
@@ -756,9 +1206,12 @@
 
     <!-- STICKY CTA MOBILE -->
     <div id="sticky-cta" class="sticky-cta fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg p-3 md:hidden z-50">
-        <div class="flex items-center justify-between gap-3">
-            <span class="text-sm text-gray-700">Workshop 05/02 • 20:00</span>
-            <a href="#register" class="bg-primary hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full text-sm btn-hover">
+        <div class="flex items-center justify-between gap-2">
+            <a href="https://zalo.me/0922687777" target="_blank" class="flex items-center gap-1 bg-[#0068FF] hover:bg-[#0054CC] text-white font-semibold px-3 py-2 rounded-full text-sm transition-all">
+                <svg class="w-4 h-4" viewBox="0 0 48 48" fill="currentColor"><path d="M24 0C10.745 0 0 10.745 0 24s10.745 24 24 24 24-10.745 24-24S37.255 0 24 0zm9.238 18.27c-.083-.42-.208-.84-.375-1.227-.167-.395-.375-.757-.625-1.087a5.04 5.04 0 0 0-.875-.93c-.333-.27-.708-.498-1.117-.678-.408-.18-.85-.313-1.317-.395-.467-.083-.958-.125-1.467-.125H15.629c-.5 0-.983.042-1.442.117-.458.075-.883.2-1.275.367-.392.167-.75.375-1.075.625-.325.25-.608.533-.85.858-.242.325-.433.683-.575 1.075a4.6 4.6 0 0 0-.287 1.233 6.5 6.5 0 0 0-.042.775v10.317c0 .267.017.533.05.8.033.267.083.525.15.775.067.25.15.492.258.725.108.233.233.45.375.658.142.208.3.4.475.583.175.183.367.35.575.5.208.15.433.283.667.392.233.108.483.2.742.267.258.067.525.108.8.133.275.025.558.033.85.025h11.85c.292.008.575 0 .85-.025.275-.025.542-.067.8-.133.258-.067.508-.158.742-.267.233-.108.458-.242.667-.392.208-.15.4-.317.575-.5.175-.183.333-.375.475-.583.142-.208.267-.425.375-.658.108-.233.192-.475.258-.725.067-.25.117-.508.15-.775.033-.267.05-.533.05-.8V19.045c0-.267-.017-.533-.042-.775z"/><path d="M19.5 24.5h-2v6h2v-6zm4 0h-2v6h2v-6zm4.5 0h-2v6h2v-6z" fill="white"/></svg>
+                Zalo
+            </a>
+            <a href="#register" class="bg-primary hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full text-sm btn-hover flex-1 text-center">
                 Đăng ký ngay
             </a>
         </div>
@@ -766,9 +1219,43 @@
 
     <!-- JavaScript -->
     <script>
-        // Countdown Timer - Workshop Date (05/02/2026 20:00)
+        // Case Carousel
+        let carouselPosition = 0;
+        const carousel = document.getElementById('caseCarousel');
+
+        function moveCarousel(direction) {
+            if (!carousel) return;
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const slideWidth = slides[0].offsetWidth + 16; // width + gap
+            const visibleSlides = Math.floor(carousel.parentElement.offsetWidth / slideWidth);
+            const maxPosition = -(slides.length - visibleSlides) * slideWidth;
+
+            // direction: 1 = next (sang phải), -1 = prev (sang trái)
+            carouselPosition -= direction * slideWidth;
+
+            // Loop: đến cuối quay về đầu, đến đầu quay về cuối
+            if (carouselPosition < maxPosition) {
+                carouselPosition = 0; // Đến cuối → về đầu
+            } else if (carouselPosition > 0) {
+                carouselPosition = maxPosition; // Đến đầu → về cuối
+            }
+
+            carousel.style.transform = `translateX(${carouselPosition}px)`;
+        }
+
+        // Auto-scroll carousel mỗi 4 giây
+        let autoScrollInterval;
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => moveCarousel(1), 4000);
+        }
+        startAutoScroll();
+
+        carousel?.parentElement?.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        carousel?.parentElement?.addEventListener('mouseleave', startAutoScroll);
+
+        // Countdown Timer - Workshop Date (04/02/2026 20:00)
         function updateCountdown() {
-            const workshopDate = new Date('2026-02-05T20:00:00+07:00').getTime();
+            const workshopDate = new Date('2026-02-04T20:00:00+07:00').getTime();
             const now = new Date().getTime();
             const distance = workshopDate - now;
 
@@ -853,6 +1340,43 @@
                 }
             });
         });
+    </script>
+
+    <!-- UTM Tracking Script -->
+    <script>
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+            const utmData = {};
+
+            utmParams.forEach(param => {
+                if (urlParams.has(param)) {
+                    utmData[param] = urlParams.get(param);
+                }
+            });
+
+            const packageUrls = {
+                'goi1': 'https://payxh.makeviral.pro/goi1',
+                'goi2': 'https://payxh.makeviral.pro/goi2',
+                'mbs': 'https://payxh.makeviral.pro/mbs',
+                'goi1-2': 'https://payxh.makeviral.pro/goi1-2'
+            };
+
+            document.querySelectorAll('.utm-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pkg = this.dataset.package;
+                    if (pkg && packageUrls[pkg]) {
+                        let targetUrl = packageUrls[pkg];
+                        if (Object.keys(utmData).length > 0) {
+                            const utmString = new URLSearchParams(utmData).toString();
+                            targetUrl += '?' + utmString;
+                        }
+                        window.open(targetUrl, "_blank");
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>

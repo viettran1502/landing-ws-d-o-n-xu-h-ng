@@ -14,7 +14,18 @@
       "Bash(npx puppeteer:*)",
       "Bash(start \"\" \"D:\\\\Projects\\\\landing-xuhuong-2026\\\\index.html\")",
       "Bash(npx --yes puppeteer@latest -e:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(node convert-webp.mjs:*)",
+      "Bash(du:*)",
+      "Bash(npx serve:*)"
     ]
   }
 }
